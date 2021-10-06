@@ -47,13 +47,6 @@ export default class Model {
         this.save();
     }
 
-    toogleCompleted(id){
-        const index = this.findTodo(id);
-        const todo = this.todos[index];
-        todo.completed = !todo.completed;
-        this.save();
-    }
-
     save(){
         localStorage.setItem('todos', JSON.stringify(this.todos));
     }
