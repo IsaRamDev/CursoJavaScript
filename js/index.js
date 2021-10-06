@@ -9,7 +9,7 @@ import View from "./view.js";
     model.setView(view);
     view.setModel(model);
 
-    view.render();
+    view.createTable();
 
  } );
 

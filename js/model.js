@@ -19,7 +19,7 @@ export default class Model {
     getTodos() {
         return this.todos.map( todo => ({...todo}) );
     }
-
+ 
     addTodo(Nombre, Autor, Edición, Páginas) {
         const todo = { 
             id: this.currentId++,
@@ -36,9 +36,17 @@ export default class Model {
         this.save();
         return {...todo};
     }
+    editTodo(id, Nombre, Autor, Edición, Páginas) {
+        const index = this.todos.findIndex( t => t.id === id);
+        this.todos[index].Autor = Autor;
+        this.todos[index].Edición = Edición;
+        this.todos[index].Páginas = Páginas;
+        this.todos[index].Nombre = Nombre;
+        this.save();
+    }
 
     findTodo(id){
-        return this.todos.findIndex( t => t.id === id);
+        return this.todos.find( t => t.id === id);
     }
 
     removeTodo(id){
